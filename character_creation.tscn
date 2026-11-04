@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://dwtvgpl7uwbcd"]
+
+[ext_resource type="Script" uid="uid://b8raq6mepk2bk" path="res://character_creation.gd" id="1_855gl"]
+[ext_resource type="Texture2D" uid="uid://cv5dsj35ddr5l" path="res://icon.svg" id="1_akliv"]
+
+[node name="CharacterCreation" type="Control" unique_id=1055396424]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_855gl")
+
+[node name="MainLayout" type="HBoxContainer" parent="." unique_id=1042390289]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CharacterPreviewPanel" type="PanelContainer" parent="MainLayout" unique_id=304037451]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PreviewLayout" type="VBoxContainer" parent="MainLayout/CharacterPreviewPanel" unique_id=1570530417]
+layout_mode = 2
+
+[node name="PreviewTitle" type="Label" parent="MainLayout/CharacterPreviewPanel/PreviewLayout" unique_id=1777678142]
+layout_mode = 2
+text = "Create Your Character"
+horizontal_alignment = 1
+
+[node name="CharacterDisplay" type="SubViewportContainer" parent="MainLayout/CharacterPreviewPanel/PreviewLayout" unique_id=1260041567]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CustomizationPanel" type="PanelContainer" parent="MainLayout" unique_id=1229604211]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CusomizationLayout" type="VBoxContainer" parent="MainLayout/CustomizationPanel" unique_id=224462320]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="MainLayout/CustomizationPanel/CusomizationLayout" unique_id=1162296518]
+layout_mode = 2
+text = "Character Name"
+
+[node name="NameInput" type="LineEdit" parent="MainLayout/CustomizationPanel/CusomizationLayout" unique_id=1808296027]
+layout_mode = 2
+placeholder_text = "Enter your name..."
+max_length = 20
+
+[node name="BodyTypeLabel" type="Label" parent="MainLayout/CustomizationPanel/CusomizationLayout" unique_id=228084842]
+layout_mode = 2
+text = "Body Type"
+
+[node name="BodyTypeOptions" type="HBoxContainer" parent="MainLayout/CustomizationPanel/CusomizationLayout" unique_id=655037595]
+layout_mode = 2
+
+[node name="FemaleButton" type="TextureButton" parent="MainLayout/CustomizationPanel/CusomizationLayout/BodyTypeOptions" unique_id=853311002]
+custom_minimum_size = Vector2(80, 70)
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("1_akliv")
+stretch_mode = 6
+
+[node name="MaleButton" type="TextureButton" parent="MainLayout/CustomizationPanel/CusomizationLayout/BodyTypeOptions" unique_id=249414194]
+custom_minimum_size = Vector2(80, 70)
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("1_akliv")
+stretch_mode = 6
+
+[node name="HairStyleLabel" type="Label" parent="MainLayout/CustomizationPanel/CusomizationLayout" unique_id=59333386]
+layout_mode = 2
+text = "Hairstyle"
+
+[node name="HairstyleOptions" type="HBoxContainer" parent="MainLayout/CustomizationPanel/CusomizationLayout" unique_id=973459964]
+layout_mode = 2
+
+[node name="PreviousHairButton" type="Button" parent="MainLayout/CustomizationPanel/CusomizationLayout/HairstyleOptions" unique_id=1328143540]
+layout_mode = 2
+text = "<"
+
+[node name="HairstyleValue" type="Label" parent="MainLayout/CustomizationPanel/CusomizationLayout/HairstyleOptions" unique_id=1748499112]
+layout_mode = 2
+text = "Style 1/5"
+
+[node name="NextHairButton" type="Button" parent="MainLayout/CustomizationPanel/CusomizationLayout/HairstyleOptions" unique_id=861483119]
+layout_mode = 2
+text = ">"
+
+[node name="HairColorLabel" type="Label" parent="MainLayout/CustomizationPanel/CusomizationLayout" unique_id=907631644]
+layout_mode = 2
+text = "Hair Color"
+
+[node name="HairColorPresets" type="HBoxContainer" parent="MainLayout/CustomizationPanel/CusomizationLayout" unique_id=67377454]
+layout_mode = 2
+
+[node name="HairBlack" type="Button" parent="MainLayout/CustomizationPanel/CusomizationLayout/HairColorPresets" unique_id=381920912]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="HairBrown" type="Button" parent="MainLayout/CustomizationPanel/CusomizationLayout/HairColorPresets" unique_id=559877914]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="HairBlonde" type="Button" parent="MainLayout/CustomizationPanel/CusomizationLayout/HairColorPresets" unique_id=1495707147]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="HairRed" type="Button" parent="MainLayout/CustomizationPanel/CusomizationLayout/HairColorPresets" unique_id=1989022381]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="HairWhite" type="Button" parent="MainLayout/CustomizationPanel/CusomizationLayout/HairColorPresets" unique_id=2035920051]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="HairColorPicker" type="ColorPickerButton" parent="MainLayout/CustomizationPanel/CusomizationLayout" unique_id=2126305523]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+
+[node name="EyeColorLabel" type="Label" parent="MainLayout/CustomizationPanel/CusomizationLayout" unique_id=1535033095]
+layout_mode = 2
+text = "Eye Color"
+
+[node name="EyeColorPresets" type="HBoxContainer" parent="MainLayout/CustomizationPanel/CusomizationLayout" unique_id=1908906766]
+layout_mode = 2
+
+[node name="EyeBrown" type="Button" parent="MainLayout/CustomizationPanel/CusomizationLayout/EyeColorPresets" unique_id=1125240947]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="EyeBlue" type="Button" parent="MainLayout/CustomizationPanel/CusomizationLayout/EyeColorPresets" unique_id=1179323874]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="EyeGreen" type="Button" parent="MainLayout/CustomizationPanel/CusomizationLayout/EyeColorPresets" unique_id=1672401127]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="EyeGray" type="Button" parent="MainLayout/CustomizationPanel/CusomizationLayout/EyeColorPresets" unique_id=743959981]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="EyeColorPicker" type="ColorPickerButton" parent="MainLayout/CustomizationPanel/CusomizationLayout" unique_id=1461738956]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+color = Color(0, 0, 0.8745098, 1)
