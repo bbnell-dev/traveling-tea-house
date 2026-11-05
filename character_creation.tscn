@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://dwtvgpl7uwbcd"]
 
 [ext_resource type="Script" uid="uid://b8raq6mepk2bk" path="res://character_creation.gd" id="1_855gl"]
-[ext_resource type="Texture2D" uid="uid://cv5dsj35ddr5l" path="res://icon.svg" id="1_akliv"]
+[ext_resource type="Texture2D" uid="uid://htjxdihngm3q" path="res://assets/characters/bodies/female.png" id="2_j50lp"]
+[ext_resource type="Texture2D" uid="uid://heneg5kuol0w" path="res://assets/characters/eyes/eyes.png" id="3_rigkr"]
+[ext_resource type="Texture2D" uid="uid://d14omvknw0g3e" path="res://assets/characters/hair/hair_01.png" id="4_gja5a"]
+[ext_resource type="Texture2D" uid="uid://byvn5waw5bn1k" path="res://assets/characters/outfits/outfit_01.png" id="5_mhh0t"]
 
 [node name="CharacterCreation" type="Control" unique_id=1055396424]
 layout_mode = 3
@@ -36,6 +39,33 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="PreviewViewport" type="SubViewport" parent="MainLayout/CharacterPreviewPanel/PreviewLayout/CharacterDisplay" unique_id=425522793]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(320, 320)
+render_target_update_mode = 4
+
+[node name="CharacterPreview" type="Node2D" parent="MainLayout/CharacterPreviewPanel/PreviewLayout/CharacterDisplay/PreviewViewport" unique_id=1650467041]
+texture_filter = 1
+position = Vector2(160, 160)
+scale = Vector2(3, 3)
+
+[node name="BodySprite" type="Sprite2D" parent="MainLayout/CharacterPreviewPanel/PreviewLayout/CharacterDisplay/PreviewViewport/CharacterPreview" unique_id=2091842201]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_j50lp")
+
+[node name="EyesSprite" type="Sprite2D" parent="MainLayout/CharacterPreviewPanel/PreviewLayout/CharacterDisplay/PreviewViewport/CharacterPreview" unique_id=2118894694]
+z_index = 2
+texture = ExtResource("3_rigkr")
+
+[node name="HairSprite" type="Sprite2D" parent="MainLayout/CharacterPreviewPanel/PreviewLayout/CharacterDisplay/PreviewViewport/CharacterPreview" unique_id=1323793150]
+z_index = 3
+texture = ExtResource("4_gja5a")
+
+[node name="OutfitSprite" type="Sprite2D" parent="MainLayout/CharacterPreviewPanel/PreviewLayout/CharacterDisplay/PreviewViewport/CharacterPreview" unique_id=1170677773]
+z_index = 1
+texture = ExtResource("5_mhh0t")
+
 [node name="CustomizationPanel" type="PanelContainer" parent="MainLayout" unique_id=1229604211]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -51,27 +81,6 @@ text = "Character Name"
 layout_mode = 2
 placeholder_text = "Enter your name..."
 max_length = 20
-
-[node name="BodyTypeLabel" type="Label" parent="MainLayout/CustomizationPanel/CusomizationLayout" unique_id=228084842]
-layout_mode = 2
-text = "Body Type"
-
-[node name="BodyTypeOptions" type="HBoxContainer" parent="MainLayout/CustomizationPanel/CusomizationLayout" unique_id=655037595]
-layout_mode = 2
-
-[node name="FemaleButton" type="TextureButton" parent="MainLayout/CustomizationPanel/CusomizationLayout/BodyTypeOptions" unique_id=853311002]
-custom_minimum_size = Vector2(80, 70)
-layout_mode = 2
-toggle_mode = true
-texture_normal = ExtResource("1_akliv")
-stretch_mode = 6
-
-[node name="MaleButton" type="TextureButton" parent="MainLayout/CustomizationPanel/CusomizationLayout/BodyTypeOptions" unique_id=249414194]
-custom_minimum_size = Vector2(80, 70)
-layout_mode = 2
-toggle_mode = true
-texture_normal = ExtResource("1_akliv")
-stretch_mode = 6
 
 [node name="HairStyleLabel" type="Label" parent="MainLayout/CustomizationPanel/CusomizationLayout" unique_id=59333386]
 layout_mode = 2
@@ -150,3 +159,63 @@ layout_mode = 2
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
 color = Color(0, 0, 0.8745098, 1)
+
+[node name="SkinColorLabel" type="Label" parent="MainLayout/CustomizationPanel/CusomizationLayout" unique_id=491334631]
+layout_mode = 2
+text = "Skin Color"
+
+[node name="SkinColorPresets" type="HBoxContainer" parent="MainLayout/CustomizationPanel/CusomizationLayout" unique_id=1312980331]
+layout_mode = 2
+
+[node name="SkinLight" type="Button" parent="MainLayout/CustomizationPanel/CusomizationLayout/SkinColorPresets" unique_id=1731937855]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="SkinFair" type="Button" parent="MainLayout/CustomizationPanel/CusomizationLayout/SkinColorPresets" unique_id=271957148]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="SkinMedium" type="Button" parent="MainLayout/CustomizationPanel/CusomizationLayout/SkinColorPresets" unique_id=2008266205]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="SkinTan" type="Button" parent="MainLayout/CustomizationPanel/CusomizationLayout/SkinColorPresets" unique_id=878595683]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="SkinDeep" type="Button" parent="MainLayout/CustomizationPanel/CusomizationLayout/SkinColorPresets" unique_id=297633125]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="SkinDark" type="Button" parent="MainLayout/CustomizationPanel/CusomizationLayout/SkinColorPresets" unique_id=412402106]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="SkinColorPicker" type="ColorPickerButton" parent="MainLayout/CustomizationPanel/CusomizationLayout/SkinColorPresets" unique_id=1191572938]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+
+[node name="CreateCharacterButton" type="Button" parent="MainLayout/CustomizationPanel/CusomizationLayout" unique_id=632884486]
+layout_mode = 2
+text = "Create Character"
+
+[node name="OutfitLabel" type="Label" parent="MainLayout/CustomizationPanel/CusomizationLayout" unique_id=557768619]
+layout_mode = 2
+text = "Outfit"
+
+[node name="OutfitOptions" type="HBoxContainer" parent="MainLayout/CustomizationPanel/CusomizationLayout/OutfitLabel" unique_id=960509288]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PreviousOutfitButton" type="Button" parent="MainLayout/CustomizationPanel/CusomizationLayout/OutfitLabel/OutfitOptions" unique_id=1658801901]
+layout_mode = 2
+text = "<"
+
+[node name="OutfitValue" type="Label" parent="MainLayout/CustomizationPanel/CusomizationLayout/OutfitLabel/OutfitOptions" unique_id=1079559652]
+layout_mode = 2
+text = "Outfit 1/15"
+
+[node name="NextOutfitButton" type="Button" parent="MainLayout/CustomizationPanel/CusomizationLayout/OutfitLabel/OutfitOptions" unique_id=1388357055]
+layout_mode = 2
+text = ">"
