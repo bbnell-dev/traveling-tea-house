@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://vva1a83g1x5k"]
+
+[ext_resource type="Script" uid="uid://btts2dl32c2bc" path="res://pause_menu.gd" id="1_hdmo1"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1889650799]
+process_mode = 3
+script = ExtResource("1_hdmo1")
+
+[node name="MenuCenter" type="CenterContainer" parent="." unique_id=1242026292]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuPanel" type="PanelContainer" parent="MenuCenter" unique_id=2130908239]
+layout_mode = 2
+
+[node name="MenuLayout" type="VBoxContainer" parent="MenuCenter/MenuPanel" unique_id=636971770]
+layout_mode = 2
+
+[node name="PauseTitle" type="Label" parent="MenuCenter/MenuPanel/MenuLayout" unique_id=495266926]
+layout_mode = 2
+text = "Game Paused"
+
+[node name="ResumeButton" type="Button" parent="MenuCenter/MenuPanel/MenuLayout" unique_id=1129044236]
+layout_mode = 2
+text = "Resume"
+
+[node name="SaveButton" type="Button" parent="MenuCenter/MenuPanel/MenuLayout" unique_id=57674791]
+layout_mode = 2
+text = "Save Game"
+
+[node name="SettingsButton" type="Button" parent="MenuCenter/MenuPanel/MenuLayout" unique_id=2000370881]
+layout_mode = 2
+text = "Settings"
+
+[node name="MainMenuButton" type="Button" parent="MenuCenter/MenuPanel/MenuLayout" unique_id=1530481701]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="QuitButton" type="Button" parent="MenuCenter/MenuPanel/MenuLayout" unique_id=2138196266]
+layout_mode = 2
+text = "Quit Game"

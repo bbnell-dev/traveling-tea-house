@@ -16,9 +16,9 @@ func save_character() -> void:
 		"name": character_name,
 		"hairstyle": hairstyle_index,
 		"outfit": outfit_index,
-		"skin_color": skin_color,
-		"hair_color": hair_color,
-		"eye_color": eye_color
+		"skin_color": skin_color.to_html(),
+		"hair_color": hair_color.to_html(),
+		"eye_color": eye_color.to_html()
 	}
 	
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
@@ -49,8 +49,19 @@ func load_character() -> bool:
 	hairstyle_index = int(data.get("hairstyle", 0))
 	outfit_index = int(data.get("outfit", 0))
 	
-	skin_color = Color(str(data.get("skin_color", "#f0c7a8")))
-	hair_color = Color(str(data.get("hair_color", "#795548")))
-	eye_color = Color(str(data.get("eye_color", "#5385b5")))
+	skin_color = Color.from_string(
+		str(data.get("skin_color", "#f0c7a8")),
+		Color("#f0c7a8")
+	)
+	
+	hair_color = Color.from_string(
+		str(data.get("hair_color", "#795548")),
+		Color("#795548")
+	)
+	
+	eye_color = Color.from_string(
+		str(data.get("eye_color", "#5385b5")),
+		Color("#5385b5")
+	)
 	
 	return true

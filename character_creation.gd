@@ -211,6 +211,8 @@ func create_character() -> void:
 	PlayerData.save_character()
 	
 	print("Character saved: ", chosen_name)
+	
+	get_tree().change_scene_to_file("res://world.tscn")
 
 # Outfit button functions
 func previous_outfit() -> void:

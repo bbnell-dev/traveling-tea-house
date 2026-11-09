@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://b7248k04yn8dn"]
+
+[ext_resource type="Script" uid="uid://cookmcyuf6dg4" path="res://main_menu.gd" id="1_06t4h"]
+
+[node name="MainMenu" type="Control" unique_id=932067273]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_06t4h")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=874414615]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuLayout" type="VBoxContainer" parent="CenterContainer" unique_id=1467885674]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="GameTitle" type="Label" parent="CenterContainer/MenuLayout" unique_id=2118953447]
+layout_mode = 2
+text = "Traveling Tea House"
+
+[node name="ContinueButton" type="Button" parent="CenterContainer/MenuLayout" unique_id=1390138307]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+text = "Continue"
+
+[node name="NewGameButton" type="Button" parent="CenterContainer/MenuLayout" unique_id=108195763]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+text = "New Game"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/MenuLayout" unique_id=374518455]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+text = "Quit"
+
+[node name="SettingsButton" type="Button" parent="CenterContainer/MenuLayout" unique_id=1052558303]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+text = "Settings"

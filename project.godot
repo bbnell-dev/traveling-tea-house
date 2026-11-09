@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Traveling Tea House"
-run/main_scene="uid://dluleuw5a2xhj"
+run/main_scene="uid://b7248k04yn8dn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
