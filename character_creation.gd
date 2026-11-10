@@ -212,7 +212,7 @@ func create_character() -> void:
 	
 	print("Character saved: ", chosen_name)
 	
-	get_tree().change_scene_to_file("res://world.tscn")
+	get_tree().change_scene_to_file("res://bed_and_breakfast_interior.tscn")
 
 # Outfit button functions
 func previous_outfit() -> void:

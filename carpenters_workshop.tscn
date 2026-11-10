@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dqh8i36maokw0"]
+
+[ext_resource type="PackedScene" uid="uid://c30i18i11ssbs" path="res://player.tscn" id="1_anadi"]
+[ext_resource type="PackedScene" uid="uid://vva1a83g1x5k" path="res://pause_menu.tscn" id="2_lh8sf"]
+[ext_resource type="Script" uid="uid://bm6rpy7p6j0na" path="res://carpenters_workshop_exit_door.gd" id="3_lh8sf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q2va8"]
+size = Vector2(120, 90)
+
+[node name="CarpentersWorkshopInterior" type="Node2D" unique_id=1879824419]
+
+[node name="Player" parent="." unique_id=673182693 instance=ExtResource("1_anadi")]
+
+[node name="PauseMenu" parent="." unique_id=1889650799 instance=ExtResource("2_lh8sf")]
+visible = false
+
+[node name="Floor" type="Polygon2D" parent="." unique_id=2130495094]
+color = Color(0.7882353, 0.69411767, 0.5529412, 1)
+polygon = PackedVector2Array(0, 0, 800, 0, 800, 600, 0, 600)
+
+[node name="ExitDoor" type="Area2D" parent="." unique_id=637340318]
+position = Vector2(400, 520)
+script = ExtResource("3_lh8sf")
+
+[node name="DoorVisual" type="Polygon2D" parent="ExitDoor" unique_id=1830745527]
+color = Color(0.4745098, 0.33333334, 0.28235295, 1)
+polygon = PackedVector2Array(-45, -25, 45, -25, 45, 25, -45, 25)
+
+[node name="InteractionPrompt" type="Label" parent="ExitDoor" unique_id=1451744251]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "F - Exit"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitDoor" unique_id=743801710]
+shape = SubResource("RectangleShape2D_q2va8")
