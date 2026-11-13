@@ -14,7 +14,7 @@ func load_appearance() -> void:
 	PlayerData.load_character()
 	
 	body_sprite.texture = load(
-		"res://assets/characters/bodies/female.png"
+		"res://assets/characters/bodies/body.png"
 	)
 	
 	hair_sprite.texture = load(

@@ -2,12 +2,12 @@ extends Control
 
 # Outfit index
 var outfit_index = 0
-const TOTAL_OUTFITS: int = 15
+const TOTAL_OUTFITS: int = 2
 
 # Character cutomization choices
 var hairstyle_index: int = 0
 
-const TOTAL_HAIRSTYLES: int = 5
+const TOTAL_HAIRSTYLES: int = 2
 
 # Hair and eye colors
 var selected_hair_color: Color = Color("#795548")
@@ -40,35 +40,19 @@ const EYE_COLORS = {
 
 const HAIR_TEXTURES = [
 	preload("res://assets/characters/hair/hair_01.png"),
-	preload("res://assets/characters/hair/hair_02.png"),
-	preload("res://assets/characters/hair/hair_03.png"),
-	preload("res://assets/characters/hair/hair_04.png"),
-	preload("res://assets/characters/hair/hair_05.png")
+	preload("res://assets/characters/hair/hair_02.png")
 ]
 
 const OUTFIT_TEXTURES = [
 	preload("res://assets/characters/outfits/outfit_01.png"),
-	preload("res://assets/characters/outfits/outfit_02.png"),
-	preload("res://assets/characters/outfits/outfit_03.png"),
-	preload("res://assets/characters/outfits/outfit_04.png"),
-	preload("res://assets/characters/outfits/outfit_05.png"),
-	preload("res://assets/characters/outfits/outfit_06.png"),
-	preload("res://assets/characters/outfits/outfit_07.png"),
-	preload("res://assets/characters/outfits/outfit_07.png"),
-	preload("res://assets/characters/outfits/outfit_08.png"),
-	preload("res://assets/characters/outfits/outfit_09.png"),
-	preload("res://assets/characters/outfits/outfit_10.png"),
-	preload("res://assets/characters/outfits/outfit_11.png"),
-	preload("res://assets/characters/outfits/outfit_12.png"),
-	preload("res://assets/characters/outfits/outfit_13.png"),
-	preload("res://assets/characters/outfits/outfit_14.png"),
-	preload("res://assets/characters/outfits/outfit_15.png")
+	preload("res://assets/characters/outfits/outfit_02.png")
 ]
 
 # Outfit picker
-@onready var previous_outfit_button: Button = $MainLayout/CustomizationPanel/CusomizationLayout/OutfitLabel/OutfitOptions/PreviousOutfitButton
-@onready var next_outfit_button: Button = $MainLayout/CustomizationPanel/CusomizationLayout/OutfitLabel/OutfitOptions/NextOutfitButton
-@onready var outfit_value: Label = $MainLayout/CustomizationPanel/CusomizationLayout/OutfitLabel/OutfitOptions/OutfitValue
+
+@onready var previous_outfit_button: Button = $MainLayout/CustomizationPanel/CusomizationLayout/OutfitOptions/PreviousOutfitButton
+@onready var next_outfit_button: Button = $MainLayout/CustomizationPanel/CusomizationLayout/OutfitOptions/NextOutfitButton
+@onready var outfit_value: Label = $MainLayout/CustomizationPanel/CusomizationLayout/OutfitOptions/OutfitValue
 
 # Save character
 @onready var name_input: LineEdit = $MainLayout/CustomizationPanel/CusomizationLayout/NameInput
@@ -132,7 +116,7 @@ func next_hairstyle() -> void:
 	update_hairstyle_label()
 	
 func update_hairstyle_label() -> void:
-	hairstyle_value.text = "Style %d / %d" % [
+	hairstyle_value.text = "%d / %d" % [
 		hairstyle_index + 1,
 		TOTAL_HAIRSTYLES
 	]
@@ -212,7 +196,8 @@ func create_character() -> void:
 	
 	print("Character saved: ", chosen_name)
 	
-	get_tree().change_scene_to_file("res://bed_and_breakfast_interior.tscn")
+	get_tree().change_scene_to_file("res://wrenwood/bed_and_breakfast/bed_and_breakfast_interior.tscn")
+	
 
 # Outfit button functions
 func previous_outfit() -> void:
@@ -224,7 +209,7 @@ func next_outfit() -> void:
 	update_outfit_label()
 	
 func update_outfit_label() -> void:
-	outfit_value.text = "Outfit %d / %d" % [
+	outfit_value.text = "%d / %d" % [
 		outfit_index + 1,
 		TOTAL_OUTFITS
 	]

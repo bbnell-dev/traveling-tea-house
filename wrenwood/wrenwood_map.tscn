@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://b1ksqmwyj17t5"]
+
+[ext_resource type="PackedScene" uid="uid://c30i18i11ssbs" path="res://player.tscn" id="1_fh6m4"]
+[ext_resource type="PackedScene" uid="uid://vva1a83g1x5k" path="res://pause_menu.tscn" id="2_m20ui"]
+[ext_resource type="PackedScene" uid="uid://co5csfleyeaw0" path="res://inventory_ui.tscn" id="3_ajq23"]
+[ext_resource type="Script" uid="uid://dgtlhciya8hnf" path="res://wrenwood/bed_and_breakfast/bed_and_breakfast.gd" id="4_fh6m4"]
+[ext_resource type="Script" uid="uid://cp7vvpbkgrqt4" path="res://wrenwood/herbalists_shop/herbalist_shop.gd" id="5_fh6m4"]
+[ext_resource type="Script" uid="uid://dh0s6jsons6a" path="res://wrenwood/general_shop/general_shop.gd" id="6_fh6m4"]
+[ext_resource type="Script" uid="uid://5sypeigq76te" path="res://wrenwood/carpenters_workshop/carpenter_workshop_interior.gd" id="7_fh6m4"]
+[ext_resource type="PackedScene" uid="uid://dwtmljb734mit" path="res://teahouse/teahouse_exterior.tscn" id="8_m20ui"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q2va8"]
+size = Vector2(240, 200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gidjm"]
+size = Vector2(240, 200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uw3oe"]
+size = Vector2(240, 200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_664hc"]
+size = Vector2(240, 200)
+
+[node name="WrenwoodMap" type="Node2D" unique_id=1739342265]
+
+[node name="Player" parent="." unique_id=673182693 instance=ExtResource("1_fh6m4")]
+
+[node name="PauseMenu" parent="." unique_id=1889650799 instance=ExtResource("2_m20ui")]
+
+[node name="InventoryUI" parent="." unique_id=1654947975 instance=ExtResource("3_ajq23")]
+
+[node name="Environment" type="Node2D" parent="." unique_id=869184799]
+
+[node name="Polygon2D" type="Polygon2D" parent="Environment" unique_id=1272972759]
+z_index = -10
+color = Color(0.6050115, 0.7179532, 0.5320441, 1)
+polygon = PackedVector2Array(-1000, -750, 1000, -750, 1000, 750, -1000, 750)
+
+[node name="Buildings" type="Node2D" parent="." unique_id=696451372]
+
+[node name="BedAndBreakfast" type="Area2D" parent="Buildings" unique_id=1193428508]
+position = Vector2(-600, -400)
+script = ExtResource("4_fh6m4")
+
+[node name="HouseVisual" type="Polygon2D" parent="Buildings/BedAndBreakfast" unique_id=581884126]
+z_index = -8
+color = Color(0.41798913, 0.233572, 0.15052485, 1)
+polygon = PackedVector2Array(-80, -65, 80, -65, 80, 65, -80, 65)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/BedAndBreakfast" unique_id=1816854271]
+shape = SubResource("RectangleShape2D_q2va8")
+
+[node name="InteractionPrompt" type="Label" parent="Buildings/BedAndBreakfast" unique_id=1676577930]
+visible = false
+offset_right = 193.0
+offset_bottom = 23.0
+text = "F - Enter Bed & Breakfast"
+
+[node name="HerbalistShop" type="Area2D" parent="Buildings" unique_id=29496111]
+position = Vector2(0, -400)
+script = ExtResource("5_fh6m4")
+
+[node name="HerbalistShopVisual" type="Polygon2D" parent="Buildings/HerbalistShop" unique_id=821759226]
+z_index = -9
+color = Color(0.12935203, 0.27871436, 0.17599821, 1)
+polygon = PackedVector2Array(-80, -65, 80, -65, 80, 65, -80, 65)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/HerbalistShop" unique_id=1543419988]
+shape = SubResource("RectangleShape2D_gidjm")
+
+[node name="InteractionPrompt" type="Label" parent="Buildings/HerbalistShop" unique_id=1968904727]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "F - Enter Herbalist's Shop"
+
+[node name="GeneralShop" type="Area2D" parent="Buildings" unique_id=1297375061]
+position = Vector2(600, -400)
+script = ExtResource("6_fh6m4")
+
+[node name="GeneralShopVisual" type="Polygon2D" parent="Buildings/GeneralShop" unique_id=1816892409]
+z_index = -9
+color = Color(0.41215247, 0.41215247, 0.41215247, 1)
+polygon = PackedVector2Array(-80, -65, 80, -65, 80, 65, -80, 65)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/GeneralShop" unique_id=952659662]
+shape = SubResource("RectangleShape2D_uw3oe")
+
+[node name="InteractionPrompt" type="Label" parent="Buildings/GeneralShop" unique_id=256949755]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "F - Enter General Shop"
+
+[node name="CarpenterWorkshop" type="Area2D" parent="Buildings" unique_id=950717258]
+position = Vector2(600, 300)
+script = ExtResource("7_fh6m4")
+
+[node name="CarpenterWorkshopvisual" type="Polygon2D" parent="Buildings/CarpenterWorkshop" unique_id=686198239]
+z_index = -9
+color = Color(0.5804405, 0.38196546, 0.2644311, 1)
+polygon = PackedVector2Array(-80, -65, 80, -65, 80, 65, -80, 65)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/CarpenterWorkshop" unique_id=1379240179]
+shape = SubResource("RectangleShape2D_664hc")
+
+[node name="InteractionPrompt" type="Label" parent="Buildings/CarpenterWorkshop" unique_id=1018844560]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "F - Enter Carpenter's Workshop"
+
+[node name="NPCs" type="Node2D" parent="." unique_id=125415520]
+
+[node name="Gatherables" type="Node2D" parent="." unique_id=206032870]
+
+[node name="StoryEvents" type="Node2D" parent="." unique_id=637512930]
+
+[node name="TeaHouseExterior" parent="." unique_id=1491374000 instance=ExtResource("8_m20ui")]
+position = Vector2(-350, 250)

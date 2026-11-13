@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dp2ympykyulsn"]
+
+[ext_resource type="PackedScene" uid="uid://c30i18i11ssbs" path="res://player.tscn" id="1_emi8p"]
+[ext_resource type="PackedScene" uid="uid://vva1a83g1x5k" path="res://pause_menu.tscn" id="2_vhm1x"]
+[ext_resource type="PackedScene" uid="uid://co5csfleyeaw0" path="res://inventory_ui.tscn" id="3_3gk8w"]
+[ext_resource type="Script" uid="uid://bar44j5uv1xon" path="res://wrenwood/general_shop/general_shop_exit_door.gd" id="3_7j5mx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q2va8"]
+size = Vector2(120, 90)
+
+[node name="GeneralShopInterior" type="Node2D" unique_id=1244807677]
+
+[node name="Player" parent="." unique_id=673182693 instance=ExtResource("1_emi8p")]
+
+[node name="PauseMenu" parent="." unique_id=1889650799 instance=ExtResource("2_vhm1x")]
+
+[node name="InventoryUI" parent="." unique_id=1654947975 instance=ExtResource("3_3gk8w")]
+
+[node name="Floor" type="Polygon2D" parent="." unique_id=605223274]
+z_index = -10
+color = Color(0.7882353, 0.69411767, 0.5529412, 1)
+polygon = PackedVector2Array(0, 0, 800, 0, 800, 600, 0, 600)
+
+[node name="ExitDoor" type="Area2D" parent="." unique_id=1678593669]
+position = Vector2(400, 520)
+script = ExtResource("3_7j5mx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitDoor" unique_id=489557310]
+shape = SubResource("RectangleShape2D_q2va8")
+
+[node name="DoorVisual" type="Polygon2D" parent="ExitDoor" unique_id=77957188]
+color = Color(0.4745098, 0.33333334, 0.28235295, 1)
+polygon = PackedVector2Array(-45, -25, 45, -25, 45, 25, -45, 25)
+
+[node name="InteractionPrompt" type="Label" parent="ExitDoor" unique_id=1765160020]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "F - Exit"

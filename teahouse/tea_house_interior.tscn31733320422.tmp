@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bpuao2oemuid4"]
+
+[ext_resource type="PackedScene" uid="uid://vva1a83g1x5k" path="res://pause_menu.tscn" id="1_w1pv5"]
+[ext_resource type="PackedScene" uid="uid://co5csfleyeaw0" path="res://inventory_ui.tscn" id="2_i3jec"]
+[ext_resource type="PackedScene" uid="uid://c30i18i11ssbs" path="res://player.tscn" id="3_avpkw"]
+[ext_resource type="Script" uid="uid://dph0a4gwnodnp" path="res://teahouse/appliances/cooking_pot.gd" id="4_e0mqi"]
+[ext_resource type="Script" uid="uid://dtmvrfw5yb1ir" path="res://teahouse/recipe_book_ui.gd" id="5_njh41"]
+
+[node name="TeahouseInterior" type="Node2D" unique_id=96548515]
+
+[node name="PauseMenu" parent="." unique_id=1889650799 instance=ExtResource("1_w1pv5")]
+visible = false
+
+[node name="InventoryUI" parent="." unique_id=1654947975 instance=ExtResource("2_i3jec")]
+
+[node name="Player" parent="." unique_id=673182693 instance=ExtResource("3_avpkw")]
+
+[node name="Floor" type="Polygon2D" parent="." unique_id=2001704796]
+
+[node name="CookingPot" type="Area2D" parent="." unique_id=716855720]
+script = ExtResource("4_e0mqi")
+
+[node name="CookingPotVisual" type="Polygon2D" parent="CookingPot" unique_id=638844063]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CookingPot" unique_id=1844511410]
+
+[node name="RecipeBookUI" type="CanvasLayer" parent="." unique_id=527090833]
+script = ExtResource("5_njh41")
+
+[node name="BookPanel" type="PanelContainer" parent="RecipeBookUI" unique_id=348719712]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -31.0
+offset_right = 360.0
+offset_bottom = 319.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="RecipeBookUI/BookPanel" unique_id=555546749]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RecipeBookUI/BookPanel/MarginContainer" unique_id=182267263]
+layout_mode = 2
+
+[node name="BookTitle" type="Label" parent="RecipeBookUI/BookPanel/MarginContainer/VBoxContainer" unique_id=2106174077]
+layout_mode = 2
+
+[node name="RecipeList" type="VBoxContainer" parent="RecipeBookUI/BookPanel/MarginContainer/VBoxContainer" unique_id=235674241]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="RecipeBookUI/BookPanel/MarginContainer/VBoxContainer" unique_id=488113902]
+layout_mode = 2
+text = "Close"

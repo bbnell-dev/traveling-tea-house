@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dwtmljb734mit"]
+
+[ext_resource type="Script" uid="uid://bububc7qj0dmr" path="res://teahouse/teahouse_exterior.gd" id="1_0utm3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q2va8"]
+size = Vector2(60, 50)
+
+[node name="TeaHouseExterior" type="Node2D" unique_id=1491374000]
+script = ExtResource("1_0utm3")
+
+[node name="HouseVisual" type="Polygon2D" parent="." unique_id=776730761]
+z_index = -9
+polygon = PackedVector2Array(-80, -65, 80, -65, 80, 65, -80, 65)
+
+[node name="HouseSprite" type="Sprite2D" parent="." unique_id=337637316]
+
+[node name="Entrance" type="Area2D" parent="." unique_id=963848582]
+position = Vector2(0, 65)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entrance" unique_id=1043948632]
+shape = SubResource("RectangleShape2D_q2va8")
+
+[node name="InteractionPrompt" type="Label" parent="Entrance" unique_id=891870608]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "F -Enter Tea House"

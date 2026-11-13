@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bl6rwnbwb2jvh"]
+
+[ext_resource type="PackedScene" uid="uid://vva1a83g1x5k" path="res://pause_menu.tscn" id="1_algwi"]
+[ext_resource type="PackedScene" uid="uid://c30i18i11ssbs" path="res://player.tscn" id="2_qwjwr"]
+[ext_resource type="PackedScene" uid="uid://co5csfleyeaw0" path="res://inventory_ui.tscn" id="3_aopcy"]
+[ext_resource type="Script" uid="uid://bgepsbqik434y" path="res://wrenwood/herbalists_shop/herbalist_shop_exit_door.gd" id="3_mprct"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q2va8"]
+size = Vector2(120, 90)
+
+[node name="HerbalistShopInterior" type="Node2D" unique_id=604613380]
+
+[node name="PauseMenu" parent="." unique_id=1889650799 instance=ExtResource("1_algwi")]
+
+[node name="Player" parent="." unique_id=673182693 instance=ExtResource("2_qwjwr")]
+
+[node name="InventoryUI" parent="." unique_id=1654947975 instance=ExtResource("3_aopcy")]
+
+[node name="Floor" type="Polygon2D" parent="." unique_id=928541741]
+z_index = -10
+color = Color(0.7882353, 0.69411767, 0.5529412, 1)
+polygon = PackedVector2Array(0, 0, 800, 0, 800, 600, 0, 600)
+
+[node name="ExitDoor" type="Area2D" parent="." unique_id=2097999684]
+position = Vector2(400, 520)
+script = ExtResource("3_mprct")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitDoor" unique_id=824164387]
+shape = SubResource("RectangleShape2D_q2va8")
+
+[node name="DoorVisual" type="Polygon2D" parent="ExitDoor" unique_id=613007469]
+color = Color(0.4745098, 0.33333334, 0.28235295, 1)
+polygon = PackedVector2Array(-45, -25, 45, -25, 45, 25, -45, 25)
+
+[node name="InteractionPrompt" type="Label" parent="ExitDoor" unique_id=1206479758]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "F - Exit"

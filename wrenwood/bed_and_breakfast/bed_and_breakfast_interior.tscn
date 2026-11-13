@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://boxbx278ejp2k"]
+
+[ext_resource type="PackedScene" uid="uid://c30i18i11ssbs" path="res://player.tscn" id="1_lx1sq"]
+[ext_resource type="PackedScene" uid="uid://vva1a83g1x5k" path="res://pause_menu.tscn" id="2_jat3c"]
+[ext_resource type="PackedScene" uid="uid://co5csfleyeaw0" path="res://inventory_ui.tscn" id="3_p53ki"]
+[ext_resource type="Script" uid="uid://dbhloc653clxi" path="res://wrenwood/bed_and_breakfast/bed_and_breakfast_exit.gd" id="3_t3tqi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q2va8"]
+size = Vector2(120, 90)
+
+[node name="BedAndBreakfastInterior" type="Node2D" unique_id=303905220]
+
+[node name="Player" parent="." unique_id=673182693 instance=ExtResource("1_lx1sq")]
+position = Vector2(400, 300)
+
+[node name="PauseMenu" parent="." unique_id=1889650799 instance=ExtResource("2_jat3c")]
+
+[node name="InventoryUI" parent="." unique_id=1654947975 instance=ExtResource("3_p53ki")]
+
+[node name="Floor" type="Polygon2D" parent="." unique_id=22969953]
+z_index = -10
+color = Color(0.7882353, 0.69411767, 0.5529412, 1)
+polygon = PackedVector2Array(0, 0, 800, 0, 800, 600, 0, 600)
+
+[node name="ExitDoor" type="Area2D" parent="." unique_id=836191191]
+position = Vector2(400, 520)
+script = ExtResource("3_t3tqi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitDoor" unique_id=1142005305]
+shape = SubResource("RectangleShape2D_q2va8")
+
+[node name="InteractionPrompt" type="Label" parent="ExitDoor" unique_id=1730136855]
+visible = false
+offset_left = -55.0
+offset_top = -75.0
+offset_right = 63.0
+offset_bottom = -52.0
+text = "F - Exit"
+
+[node name="DoorVisual" type="Polygon2D" parent="ExitDoor" unique_id=716419828]
+color = Color(0.4745098, 0.33333334, 0.28235295, 1)
+polygon = PackedVector2Array(-45, -25, 45, -25, 45, 25, -45, 25)
