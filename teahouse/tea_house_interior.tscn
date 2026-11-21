@@ -1,42 +1,64 @@
 [gd_scene format=3 uid="uid://bpuao2oemuid4"]
 
-[ext_resource type="PackedScene" uid="uid://vva1a83g1x5k" path="res://pause_menu.tscn" id="1_w1pv5"]
+[ext_resource type="Script" uid="uid://dgnpspb2wcanj" path="res://teahouse/placement_grid.gd" id="2_b1ry2"]
 [ext_resource type="PackedScene" uid="uid://co5csfleyeaw0" path="res://inventory_ui.tscn" id="2_i3jec"]
 [ext_resource type="PackedScene" uid="uid://c30i18i11ssbs" path="res://player.tscn" id="3_avpkw"]
-[ext_resource type="Script" uid="uid://dph0a4gwnodnp" path="res://teahouse/appliances/cooking_pot.gd" id="4_e0mqi"]
-[ext_resource type="Script" uid="uid://dtmvrfw5yb1ir" path="res://teahouse/recipe_book_ui.gd" id="5_njh41"]
-[ext_resource type="Script" uid="uid://dcpbm7jue5vwb" path="res://teahouse/appliances/blender.gd" id="6_i3jec"]
+[ext_resource type="Texture2D" uid="uid://dt0nde1irwpd" path="res://assets/teahouse (int)/TH int - floor.png" id="4_7r7ej"]
+[ext_resource type="PackedScene" uid="uid://dnvb1psx410t5" path="res://teahouse_hud.tscn" id="4_b1ry2"]
+[ext_resource type="Script" uid="uid://b5hmr6i6nawt8" path="res://teahouse/decoration_manager.gd" id="4_jsrme"]
+[ext_resource type="Texture2D" uid="uid://dmu4alk2slpdj" path="res://assets/teahouse (int)/TH int - serivce window.png" id="5_j04w1"]
+[ext_resource type="Script" uid="uid://dtmvrfw5yb1ir" path="res://teahouse/appliances/recipe_book_ui.gd" id="5_njh41"]
+[ext_resource type="Texture2D" uid="uid://c6mwdtr04rfgk" path="res://assets/teahouse (int)/TH int - order window.png" id="6_h1nkp"]
 [ext_resource type="Script" uid="uid://dfnfpnrijp2am" path="res://teahouse/appliances/coffee_station.gd" id="7_avpkw"]
+[ext_resource type="Texture2D" uid="uid://bi730t43vjeuu" path="res://assets/teahouse (int)/TH int - wall.png" id="7_b71ue"]
 [ext_resource type="Script" uid="uid://p6nrgymd5leq" path="res://teahouse/appliances/tea_station.gd" id="8_447h1"]
-[ext_resource type="Script" uid="uid://4h37blrhyksh" path="res://teahouse/appliances/bread_counter.gd" id="9_7r7ej"]
-[ext_resource type="Script" uid="uid://bnka36aecumox" path="res://teahouse/appliances/bakery_oven.gd" id="10_jaoyi"]
-[ext_resource type="Script" uid="uid://bddyb6xc03jku" path="res://teahouse/appliances/pestle_mortar.gd" id="11_1rv1p"]
-[ext_resource type="Script" uid="uid://1o1r4wfbh0ke" path="res://teahouse/appliances/preserving_station.gd" id="12_j04w1"]
-[ext_resource type="Script" uid="uid://ccmmjgfw7jgvk" path="res://teahouse/appliances/chocolate_maker.gd" id="13_h1nkp"]
-[ext_resource type="Script" uid="uid://ddjf0dqqa2b2i" path="res://teahouse/appliances/cheese_processer.gd" id="14_b71ue"]
-[ext_resource type="Script" uid="uid://tlw5nhsx37lv" path="res://teahouse/appliances/butter_churn.gd" id="15_0rauv"]
-[ext_resource type="Script" uid="uid://cwxft40a3cvlg" path="res://teahouse/appliances/grain_mill.gd" id="16_jp64h"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w1pv5"]
-size = Vector2(80, 80)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gidjm"]
+size = Vector2(640, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uw3oe"]
+size = Vector2(20, 384)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_664hc"]
+size = Vector2(160, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycg7y"]
+size = Vector2(20, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cudrt"]
+size = Vector2(320, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dhar"]
+size = Vector2(20, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iqigj"]
+size = Vector2(160, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_74tfn"]
+size = Vector2(20, 384)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q2va8"]
 size = Vector2(80, 80)
 
 [node name="TeahouseInterior" type="Node2D" unique_id=96548515]
 
-[node name="PauseMenu" parent="." unique_id=1889650799 instance=ExtResource("1_w1pv5")]
+[node name="Background" type="Polygon2D" parent="." unique_id=1285405033]
+z_index = -20
+color = Color(0.12941177, 0.101960786, 0.09019608, 1)
+polygon = PackedVector2Array(-2000, -2000, 2000, -2000, 2000, 2000, -2000, 2000)
+
+[node name="PlacementGrid" type="Node2D" parent="." unique_id=421464668]
+process_mode = 3
+z_index = 10
+script = ExtResource("2_b1ry2")
+line_color = Color(0.12941177, 0.101960786, 0.09019608, 1)
+
+[node name="PlacedAppliances" type="Node2D" parent="." unique_id=9567101]
 
 [node name="InventoryUI" parent="." unique_id=1654947975 instance=ExtResource("2_i3jec")]
 
-[node name="Player" parent="." unique_id=673182693 instance=ExtResource("3_avpkw")]
-
-[node name="Floor" type="Polygon2D" parent="." unique_id=850703340]
-z_index = -10
-color = Color(0.5686741, 0.47891515, 0.34225833, 1)
-polygon = PackedVector2Array(0, 0, 800, 0, 800, 600, 0, 600)
-
 [node name="RecipeBookUI" type="CanvasLayer" parent="." unique_id=527090833]
+visible = false
 script = ExtResource("5_njh41")
 
 [node name="BookPanel" type="PanelContainer" parent="RecipeBookUI" unique_id=348719712]
@@ -69,27 +91,84 @@ layout_mode = 2
 layout_mode = 2
 text = "Close"
 
-[node name="CookingPot" type="Area2D" parent="." unique_id=716855720]
-position = Vector2(110, 110)
-script = ExtResource("4_e0mqi")
+[node name="DecorationManager" type="Node2D" parent="." unique_id=1061481172]
+script = ExtResource("4_jsrme")
 
-[node name="CookingPotVisual" type="Polygon2D" parent="CookingPot" unique_id=638844063]
-polygon = PackedVector2Array(-40, -40, 40, -40, 40, 40, -40, 40)
+[node name="TeahouseHUD" parent="." unique_id=867755910 instance=ExtResource("4_b1ry2")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CookingPot" unique_id=1844511410]
-shape = SubResource("RectangleShape2D_w1pv5")
+[node name="CollisionWalls" type="StaticBody2D" parent="." unique_id=408046654]
 
-[node name="Blender" type="Area2D" parent="." unique_id=1482139043]
-position = Vector2(300, 110)
-script = ExtResource("6_i3jec")
+[node name="TopWall" type="CollisionShape2D" parent="CollisionWalls" unique_id=1475242715]
+position = Vector2(352, 160)
+shape = SubResource("RectangleShape2D_gidjm")
 
-[node name="BlenderVisual" type="Polygon2D" parent="Blender" unique_id=1759607905]
-polygon = PackedVector2Array(-40, -40, 40, -40, 40, 40, -40, 40)
+[node name="RightWall" type="CollisionShape2D" parent="CollisionWalls" unique_id=1592788801]
+position = Vector2(672, 352)
+shape = SubResource("RectangleShape2D_uw3oe")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Blender" unique_id=608401289]
-shape = SubResource("RectangleShape2D_q2va8")
+[node name="BottomRightWall" type="CollisionShape2D" parent="CollisionWalls" unique_id=1089670721]
+position = Vector2(592, 544)
+shape = SubResource("RectangleShape2D_664hc")
+
+[node name="BRoomRightWall" type="CollisionShape2D" parent="CollisionWalls" unique_id=2137763049]
+position = Vector2(512, 640)
+shape = SubResource("RectangleShape2D_ycg7y")
+
+[node name="BottomWall" type="CollisionShape2D" parent="CollisionWalls" unique_id=315163007]
+position = Vector2(352, 736)
+shape = SubResource("RectangleShape2D_cudrt")
+
+[node name="BRoomLeftWall" type="CollisionShape2D" parent="CollisionWalls" unique_id=1191855612]
+position = Vector2(192, 640)
+shape = SubResource("RectangleShape2D_7dhar")
+
+[node name="BottomLeftWall" type="CollisionShape2D" parent="CollisionWalls" unique_id=861995210]
+position = Vector2(112, 544)
+shape = SubResource("RectangleShape2D_iqigj")
+
+[node name="LeftWall" type="CollisionShape2D" parent="CollisionWalls" unique_id=2125958685]
+position = Vector2(32, 352)
+shape = SubResource("RectangleShape2D_74tfn")
+
+[node name="Player" parent="." unique_id=673182693 instance=ExtResource("3_avpkw")]
+
+[node name="Camera2D" parent="Player" index="2" unique_id=1988359460]
+limit_left = 0
+limit_top = 0
+limit_right = 704
+limit_bottom = 765
+
+[node name="Floor" type="TextureRect" parent="." unique_id=696096357]
+z_index = -10
+texture_filter = 1
+custom_minimum_size = Vector2(704, 765)
+texture = ExtResource("4_7r7ej")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="ServiceWindow" type="Sprite2D" parent="." unique_id=1850561782]
+z_index = -4
+texture_filter = 1
+position = Vector2(256, 89)
+texture = ExtResource("5_j04w1")
+centered = false
+
+[node name="OrderWindow" type="Sprite2D" parent="." unique_id=1774859935]
+z_index = -4
+texture_filter = 1
+position = Vector2(384, 89)
+texture = ExtResource("6_h1nkp")
+centered = false
+
+[node name="BackWall" type="Sprite2D" parent="." unique_id=1885740746]
+z_index = -5
+texture_filter = 1
+position = Vector2(0, 34)
+texture = ExtResource("7_b71ue")
+centered = false
 
 [node name="CoffeeStation" type="Area2D" parent="." unique_id=1543770526]
+visible = false
 position = Vector2(490, 110)
 script = ExtResource("7_avpkw")
 
@@ -100,6 +179,7 @@ polygon = PackedVector2Array(-40, -40, 40, -40, 40, 40, -40, 40)
 shape = SubResource("RectangleShape2D_q2va8")
 
 [node name="TeaStation" type="Area2D" parent="." unique_id=25384315]
+visible = false
 position = Vector2(680, 110)
 script = ExtResource("8_447h1")
 
@@ -109,82 +189,4 @@ polygon = PackedVector2Array(-40, -40, 40, -40, 40, 40, -40, 40)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeaStation" unique_id=2137895855]
 shape = SubResource("RectangleShape2D_q2va8")
 
-[node name="BreadCounter" type="Area2D" parent="." unique_id=846746392]
-position = Vector2(110, 260)
-script = ExtResource("9_7r7ej")
-
-[node name="BreadCounterVisual" type="Polygon2D" parent="BreadCounter" unique_id=584003195]
-polygon = PackedVector2Array(-40, -40, 40, -40, 40, 40, -40, 40)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BreadCounter" unique_id=1480799327]
-shape = SubResource("RectangleShape2D_q2va8")
-
-[node name="BakeryOven" type="Area2D" parent="." unique_id=828755647]
-position = Vector2(300, 260)
-script = ExtResource("10_jaoyi")
-
-[node name="Polygon2D" type="Polygon2D" parent="BakeryOven" unique_id=102486264]
-polygon = PackedVector2Array(-40, -40, 40, -40, 40, 40, -40, 40)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BakeryOven" unique_id=1702003623]
-shape = SubResource("RectangleShape2D_q2va8")
-
-[node name="PestleMortar" type="Area2D" parent="." unique_id=338436023]
-position = Vector2(490, 260)
-script = ExtResource("11_1rv1p")
-
-[node name="Polygon2D" type="Polygon2D" parent="PestleMortar" unique_id=1173863486]
-polygon = PackedVector2Array(-40, -40, 40, -40, 40, 40, -40, 40)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PestleMortar" unique_id=247789767]
-shape = SubResource("RectangleShape2D_q2va8")
-
-[node name="PreservingStation" type="Area2D" parent="." unique_id=1097335970]
-position = Vector2(680, 260)
-script = ExtResource("12_j04w1")
-
-[node name="Polygon2D" type="Polygon2D" parent="PreservingStation" unique_id=111610910]
-polygon = PackedVector2Array(-40, -40, 40, -40, 40, 40, -40, 40)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PreservingStation" unique_id=421041940]
-shape = SubResource("RectangleShape2D_q2va8")
-
-[node name="ChocolateMaker" type="Area2D" parent="." unique_id=1616922209]
-position = Vector2(110, 410)
-script = ExtResource("13_h1nkp")
-
-[node name="Polygon2D" type="Polygon2D" parent="ChocolateMaker" unique_id=1241032703]
-polygon = PackedVector2Array(-40, -40, 40, -40, 40, 40, -40, 40)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ChocolateMaker" unique_id=517881807]
-shape = SubResource("RectangleShape2D_q2va8")
-
-[node name="CheeseProcesser" type="Area2D" parent="." unique_id=1696012578]
-position = Vector2(300, 410)
-script = ExtResource("14_b71ue")
-
-[node name="Polygon2D" type="Polygon2D" parent="CheeseProcesser" unique_id=1192256350]
-polygon = PackedVector2Array(-40, -40, 40, -40, 40, 40, -40, 40)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CheeseProcesser" unique_id=1706788382]
-shape = SubResource("RectangleShape2D_q2va8")
-
-[node name="ButterChurn" type="Area2D" parent="." unique_id=1901443077]
-position = Vector2(490, 410)
-script = ExtResource("15_0rauv")
-
-[node name="Polygon2D" type="Polygon2D" parent="ButterChurn" unique_id=449127411]
-polygon = PackedVector2Array(-40, -40, 40, -40, 40, 40, -40, 40)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ButterChurn" unique_id=961103528]
-shape = SubResource("RectangleShape2D_q2va8")
-
-[node name="GrainMill" type="Area2D" parent="." unique_id=287204127]
-position = Vector2(680, 410)
-script = ExtResource("16_jp64h")
-
-[node name="Polygon2D" type="Polygon2D" parent="GrainMill" unique_id=1674964073]
-polygon = PackedVector2Array(-40, -40, 40, -40, 40, 40, -40, 40)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GrainMill" unique_id=668964908]
-shape = SubResource("RectangleShape2D_q2va8")
+[editable path="Player"]

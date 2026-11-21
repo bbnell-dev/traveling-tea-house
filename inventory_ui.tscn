@@ -1,8 +1,16 @@
 [gd_scene format=3 uid="uid://co5csfleyeaw0"]
 
 [ext_resource type="Script" uid="uid://bt6powdxgbwvd" path="res://inventory_ui.gd" id="1_5v8q7"]
+[ext_resource type="Script" uid="uid://cbcetggisgjr2" path="res://pause_button.gd" id="2_34y5v"]
+[ext_resource type="PackedScene" uid="uid://vva1a83g1x5k" path="res://pause_menu.tscn" id="3_r57pj"]
 
-[node name="InventoryUI" type="CanvasLayer" unique_id=1654947975]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gidjm"]
+bg_color = Color(0.12941177, 0.101960786, 0.09019608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q2va8"]
+bg_color = Color(0.12941177, 0.101960786, 0.09019608, 1)
+
+[node name="MainHUD" type="CanvasLayer" unique_id=1654947975]
 script = ExtResource("1_5v8q7")
 
 [node name="Hotbar" type="HBoxContainer" parent="." unique_id=1453965213]
@@ -41,3 +49,49 @@ layout_mode = 2
 
 [node name="BackpackGrid" type="GridContainer" parent="BackpackPanel/MarginContainer/VBoxContainer" unique_id=1969101409]
 layout_mode = 2
+
+[node name="HUDItems" type="Control" parent="." unique_id=1471411903]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PauseButton" type="Button" parent="HUDItems" unique_id=1180752793]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -55.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 55.0
+grow_horizontal = 0
+text = "| |"
+script = ExtResource("2_34y5v")
+
+[node name="ClockDisplay" type="Label" parent="HUDItems" unique_id=336736175]
+custom_minimum_size = Vector2(150, 45)
+layout_mode = 1
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 160.0
+offset_bottom = 59.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_gidjm")
+text = "8:00 AM
+Day 1 (test)"
+
+[node name="CoinDisplay" type="Label" parent="HUDItems" unique_id=1047661887]
+custom_minimum_size = Vector2(150, 45)
+layout_mode = 0
+offset_left = 175.0
+offset_top = 10.0
+offset_right = 325.0
+offset_bottom = 59.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_q2va8")
+text = "Coins 150"
+
+[node name="PauseMenu" parent="." unique_id=1889650799 instance=ExtResource("3_r57pj")]

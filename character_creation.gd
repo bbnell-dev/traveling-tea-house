@@ -4,9 +4,7 @@ extends Control
 var outfit_index = 0
 const TOTAL_OUTFITS: int = 2
 
-# Character cutomization choices
 var hairstyle_index: int = 0
-
 const TOTAL_HAIRSTYLES: int = 2
 
 # Hair and eye colors
@@ -14,6 +12,7 @@ var selected_hair_color: Color = Color("#795548")
 var selected_eye_color: Color = Color("#5385b5")
 var selected_skin_color: Color = Color("#f0c7a8")
 
+#region COLOR PRESETS FOR HAIR, EYES, AND SKIN
 const SKIN_COLORS = {
 	"SkinLight": "f8ddc6",
 	"SkinFair": "f0c7a8",
@@ -38,6 +37,9 @@ const EYE_COLORS = {
 	"EyeGray": "#929ba5"
 }
 
+#endregion
+
+#region HAIR AND OUTFIT ASSETS
 const HAIR_TEXTURES = [
 	preload("res://assets/characters/hair/hair_01.png"),
 	preload("res://assets/characters/hair/hair_02.png")
@@ -48,6 +50,9 @@ const OUTFIT_TEXTURES = [
 	preload("res://assets/characters/outfits/outfit_02.png")
 ]
 
+#endregion
+
+#region ONREADY FUNCTIONS
 # Outfit picker
 
 @onready var previous_outfit_button: Button = $MainLayout/CustomizationPanel/CusomizationLayout/OutfitOptions/PreviousOutfitButton
@@ -80,6 +85,9 @@ const OUTFIT_TEXTURES = [
 @onready var hair_sprite: Sprite2D = $MainLayout/CharacterPreviewPanel/PreviewLayout/CharacterDisplay/PreviewViewport/CharacterPreview/HairSprite
 @onready var outfit_sprite: Sprite2D = $MainLayout/CharacterPreviewPanel/PreviewLayout/CharacterDisplay/PreviewViewport/CharacterPreview/OutfitSprite
 
+#endregion
+
+#region READY FUNCTIONS
 func _ready() -> void:
 	
 	previous_outfit_button.pressed.connect(previous_outfit)
@@ -107,6 +115,9 @@ func _ready() -> void:
 	setup_color_presets(hair_presets, HAIR_COLORS, true)
 	setup_color_presets(eye_presets, EYE_COLORS, false)
 	
+#endregion
+
+#region FUNCTION SETUPS
 func previous_hairstyle() -> void:
 	hairstyle_index = wrapi(hairstyle_index - 1, 0, TOTAL_HAIRSTYLES)
 	update_hairstyle_label()
@@ -217,3 +228,4 @@ func update_outfit_label() -> void:
 	outfit_sprite.texture = load(
 		"res://assets/characters/outfits/outfit_%02d.png" % (outfit_index + 1)
 	)
+#endregion
